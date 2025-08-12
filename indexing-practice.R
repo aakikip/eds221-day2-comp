@@ -88,3 +88,51 @@ fruit[1,]
 fruit[,2]
 
 fruit[2, 1] <- "pineapple"
+
+#select multiple elements
+x <- 1:10
+x[c(3,1,5)]
+x[c(1,1,1)]
+x[c(1.2, 5.4, 7.2)]
+
+#exclude elements
+x[-10]
+x[-c(2,4,6,8,10)]
+x[c(-1,2)]
+
+#logical vectors
+x[c(TRUE, FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, TRUE, FALSE)]
+
+x[x > 3]
+x[]
+x[0]
+
+#subsetting and assigning multiple values
+x <- 1:5
+x[c(1,2)] <- 2:3
+
+x[-1] <- 4:1
+
+#subset rows in data frames based on conditions(logical subsetting)
+mtcars[mtcars$gear == 5, ]
+
+mtcars[mtcars$gear == 5 & mtcars$cyl == 4, ]
+
+subset(mtcars, gear == 5)
+
+subset(mtcars, gear ==5 & cyl == 4)
+
+#remove coulmns
+df <- data.frame(x = 1:3,
+                 y = 3:1,
+                 z = c("a", "b", "c"))
+df$z <- NULL
+df <- df[c("x", "y")]
+
+setdiff(names(df), "z") #refer above and code to drop Z because its already been defined null above
+
+df[setdiff(names(df), "z")]
+
+names(df)
+
+setdiff(names(df), "z")
